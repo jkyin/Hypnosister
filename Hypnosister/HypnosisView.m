@@ -9,12 +9,16 @@
 #import "HypnosisView.h"
 
 @implementation HypnosisView
+@synthesize circleColor;
+
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
         [self setBackgroundColor:[UIColor clearColor]];
+        
+        [self setCircleColor:[UIColor lightGrayColor]];
     }
     return self;
 }
@@ -35,8 +39,7 @@
     // 用 10 点的宽度绘制所有的线条
     CGContextSetLineWidth(ctx, 10);
     
-    // 将线条颜色设为淡灰 (red/green/blue = 0.6, alpha = 1.0);
-    [[UIColor lightGrayColor] setStroke];
+    [[self circleColor] setStroke];
     
     // 按半径从大到小绘制多个同心圆
     for (float currentRadius = maxRadius; currentRadius > 0; currentRadius -= 20) {
