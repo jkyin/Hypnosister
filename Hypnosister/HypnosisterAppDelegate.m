@@ -24,14 +24,18 @@
     // 创建一个 HypnosisView 对象，将其 frame 的大小设置为屏幕大小的两倍
     CGRect bigRect = screenRect;
     bigRect.size.width *= 2.0;
-    bigRect.size.height *= 2.0;
-    HypnosisView *view = [[HypnosisView alloc] initWithFrame:bigRect];
+    HypnosisView *view = [[HypnosisView alloc] initWithFrame:screenRect];
     
     // 将新创建的 HypnosistView 对象加入 UIScrollView，而不是窗口(UIWindow *)
     [scrollView addSubview:view];
     
+    // 将新的 HypnosisView 对象放置在前一个的右侧，刚好移出屏幕外
+    screenRect.origin.x = screenRect.size.width;
+    HypnosisView *anotherView = [[HypnosisView alloc] initWithFrame:screenRect];
+    [scrollView addSubview:anotherView];
+    
     // 告诉 UIScrollView 对象「取景」范围有多大
-    [scrollView setContentSize:bigRect.size];
+    [scrollView setContentSize: bigRect.size];
     
     BOOL success = [view becomeFirstResponder];
     
