@@ -36,8 +36,7 @@
     CGContextSetLineWidth(ctx, 10);
     
     // 将线条颜色设为淡灰 (red/green/blue = 0.6, alpha = 1.0);
-    CGContextSetRGBStrokeColor(ctx, 0.6, 0.6, 0.6, 1.0);
-    
+    [[UIColor lightGrayColor] setStroke];
     // 按半径从大到小绘制多个同心圆
     for (float currentRadius = maxRadius; currentRadius > 0; currentRadius -= 20) {
         CGContextAddArc(ctx, center.x, center.y, currentRadius, 0.0, M_PI * 2.0, YES);
