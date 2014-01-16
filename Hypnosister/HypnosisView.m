@@ -12,6 +12,12 @@
 @synthesize circleColor;
 
 
+- (void)setCircleColor:(UIColor *)clr
+{
+    circleColor = clr;
+    [self setNeedsDisplay];
+}
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -82,6 +88,21 @@
 
     
     
+}
+
+- (BOOL)canBecomeFirstResponder
+{
+    return YES;
+}
+
+// 摇动设备时会发送给第一响应对象
+- (void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event
+{
+    // 检测事件类型是否为摇动
+    if (motion == UIEventSubtypeMotionShake) {
+        NSLog(@"Device started shaking!");
+        [self setCircleColor:[UIColor redColor]];
+    }
 }
 
 @end

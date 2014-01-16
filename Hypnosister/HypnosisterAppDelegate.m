@@ -20,6 +20,14 @@
     
     [[self window] addSubview:viewA];
     
+    BOOL success = [viewA becomeFirstResponder];
+    
+    if (success) {
+        NSLog(@"HypnosisView became the first responder");
+    }else {
+        NSLog(@"Oops!Could not became the first responder");
+    }
+    
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
