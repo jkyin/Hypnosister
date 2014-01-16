@@ -19,22 +19,25 @@
     
     // 创建一个 UIScrollView 对象，将其尺寸设置为窗口大小
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:screenRect];
-    [[self window] addSubview:scrollView];
-    // UIScrollView 的「取景窗口」与其中的某个视图边对齐
-    [scrollView setPagingEnabled:YES];
     
-    // 创建一个 HypnosisView 对象，将其 frame 的大小设置为屏幕大小的两倍
+    // 设置缩放系数
+    [scrollView setMinimumZoomScale:1.0];
+    [scrollView setMaximumZoomScale:5.0];
+    
+    // 设置委托对象
+    [scrollView setDelegate:self];
+    
+    [[self window] addSubview:scrollView];
+
+    
+    // 创建一个 HypnosisView 对象
     CGRect bigRect = screenRect;
-    bigRect.size.width *= 2.0;
-    HypnosisView *view = [[HypnosisView alloc] initWithFrame:screenRect];
+    view = [[HypnosisView alloc] initWithFrame:screenRect];
     
     // 将新创建的 HypnosistView 对象加入 UIScrollView，而不是窗口(UIWindow *)
     [scrollView addSubview:view];
     
-    // 将新的 HypnosisView 对象放置在前一个的右侧，刚好移出屏幕外
-    screenRect.origin.x = screenRect.size.width;
-    HypnosisView *anotherView = [[HypnosisView alloc] initWithFrame:screenRect];
-    [scrollView addSubview:anotherView];
+
     
     // 告诉 UIScrollView 对象「取景」范围有多大
     [scrollView setContentSize: bigRect.size];
@@ -53,31 +56,8 @@
     return YES;
 }
 
-- (void)applicationWillResignActive:(UIApplication *)application
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
 {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    return view;
 }
-
-- (void)applicationDidEnterBackground:(UIApplication *)application
-{
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-}
-
-- (void)applicationWillEnterForeground:(UIApplication *)application
-{
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-}
-
-- (void)applicationWillTerminate:(UIApplication *)application
-{
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-}
-
 @end
