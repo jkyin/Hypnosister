@@ -20,6 +20,8 @@
     // 创建一个 UIScrollView 对象，将其尺寸设置为窗口大小
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:screenRect];
     [[self window] addSubview:scrollView];
+    // UIScrollView 的「取景窗口」与其中的某个视图边对齐
+    [scrollView setPagingEnabled:YES];
     
     // 创建一个 HypnosisView 对象，将其 frame 的大小设置为屏幕大小的两倍
     CGRect bigRect = screenRect;
