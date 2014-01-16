@@ -14,13 +14,26 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-        
-    // 创建 HypnosisView 对象，并使其成为 UIWindow 的子视图
-    HypnosisView *viewA = [[HypnosisView alloc] initWithFrame:[[self window] bounds]];
     
-    [[self window] addSubview:viewA];
+    CGRect screenRect = [[self window] bounds];
     
-    BOOL success = [viewA becomeFirstResponder];
+    // 创建一个 UIScrollView 对象，将其尺寸设置为窗口大小
+    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:screenRect];
+    [[self window] addSubview:scrollView];
+    
+    // 创建一个 HypnosisView 对象，将其 frame 的大小设置为屏幕大小的两倍
+    CGRect bigRect = screenRect;
+    bigRect.size.width *= 2.0;
+    bigRect.size.height *= 2.0;
+    HypnosisView *view = [[HypnosisView alloc] initWithFrame:bigRect];
+    
+    // 将新创建的 HypnosistView 对象加入 UIScrollView，而不是窗口(UIWindow *)
+    [scrollView addSubview:view];
+    
+    // 告诉 UIScrollView 对象「取景」范围有多大
+    [scrollView setContentSize:bigRect.size];
+    
+    BOOL success = [view becomeFirstResponder];
     
     if (success) {
         NSLog(@"HypnosisView became the first responder");
