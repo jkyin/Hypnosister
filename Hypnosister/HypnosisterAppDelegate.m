@@ -15,6 +15,8 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
+    
     CGRect screenRect = [[self window] bounds];
     
     // 创建一个 UIScrollView 对象，将其尺寸设置为窗口大小
