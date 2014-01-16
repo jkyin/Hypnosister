@@ -21,8 +21,6 @@
     // 创建 HypnosisView 对象，并使其成为 UIWindow 的子视图
     HypnosisView *viewA = [[HypnosisView alloc] initWithFrame:viewFrameA];
     HypnosisView *viewB = [[HypnosisView alloc] initWithFrame:viewFrameB];
-    [viewA setBackgroundColor:[UIColor redColor]];
-    [viewB setBackgroundColor:[UIColor blueColor]];
     
     [[self window] addSubview:viewA];
     [viewA addSubview:viewB];
