@@ -19,6 +19,7 @@
 		2D48FE731887ADB100B2E58F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D48FE5B1887ADB100B2E58F /* UIKit.framework */; };
 		2D48FE7B1887ADB100B2E58F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2D48FE791887ADB100B2E58F /* InfoPlist.strings */; };
 		2D48FE7D1887ADB100B2E58F /* HypnosisterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D48FE7C1887ADB100B2E58F /* HypnosisterTests.m */; };
+		2D48FE881887AF1800B2E58F /* HypnosisView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D48FE871887AF1800B2E58F /* HypnosisView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,8 @@
 		2D48FE781887ADB100B2E58F /* HypnosisterTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HypnosisterTests-Info.plist"; sourceTree = "<group>"; };
 		2D48FE7A1887ADB100B2E58F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2D48FE7C1887ADB100B2E58F /* HypnosisterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HypnosisterTests.m; sourceTree = "<group>"; };
+		2D48FE861887AF1800B2E58F /* HypnosisView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HypnosisView.h; sourceTree = "<group>"; };
+		2D48FE871887AF1800B2E58F /* HypnosisView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HypnosisView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +112,8 @@
 			children = (
 				2D48FE661887ADB100B2E58F /* HypnosisterAppDelegate.h */,
 				2D48FE671887ADB100B2E58F /* HypnosisterAppDelegate.m */,
+				2D48FE861887AF1800B2E58F /* HypnosisView.h */,
+				2D48FE871887AF1800B2E58F /* HypnosisView.m */,
 				2D48FE691887ADB100B2E58F /* Images.xcassets */,
 				2D48FE5E1887ADB100B2E58F /* Supporting Files */,
 			);
@@ -242,6 +247,7 @@
 			files = (
 				2D48FE641887ADB100B2E58F /* main.m in Sources */,
 				2D48FE681887ADB100B2E58F /* HypnosisterAppDelegate.m in Sources */,
+				2D48FE881887AF1800B2E58F /* HypnosisView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
